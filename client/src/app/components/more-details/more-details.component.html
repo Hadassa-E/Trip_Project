@@ -1,0 +1,31 @@
+<section class="container">
+    <div class="dd">
+        <img src={{this.ts.tripDetails.TripImage}} />
+    </div>
+    <div class="dd">
+        <p>יעד הטיול: {{this.ts.tripDetails.TripDestination}}</p>
+        <p>סוג הטיול: {{this.ts.tripDetails.KindName}}</p>
+        <p>תאריך הטיול: {{this.ts.tripDetails.TripDate | date:"dd/MM/yy" }}</p>
+        <p>שעת יציאה לטיול: {{this.ts.tripDetails.TripTime}}</p>
+        <p>אורך הטיול בשעות: {{this.ts.tripDetails.TripHour}}</p>
+        <p>מחיר הטיול: {{this.ts.tripDetails.TripPrice}}</p>
+        <p *ngIf="this.ts.tripDetails.TripAvailability==0;else noPlaces">לא נותרו מקומות פנויים בטיול זה</p>
+        <ng-template #noPlaces>
+            <p>מקומות פנויים בטיול: {{this.ts.tripDetails.TripAvailability}}</p>
+            <button (click)="this.doOrder=false" class="btn btn-outline-dark" [hidden]="this.us.userConnect">להזמנת
+                    מקומות</button>
+        </ng-template>
+        <br>
+        <br>
+        <div class="toast show" [hidden]=this.doOrder>
+            <div class="toast-header">
+                הזמנת מקומות בטיול זה
+                <button type="button" class="btn-close" (click)="this.doOrder=true" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <label>מספר מקומות להזמנה</label><input type="number" [(ngModel)]="this.o.OrderPlaces" min="1"><br><br>
+                <button (click)="order()" class="btn btn-outline-dark">אישור הזמנה</button>
+            </div>
+        </div>
+    </div>
+</section>

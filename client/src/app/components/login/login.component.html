@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+            <form class="login" (ngSubmit)="check()" #f="ngForm">
+                <div class="login__field">
+                    <i class="fa-user login__icon fa"></i>
+                    <input type="text" placeholder="שם פרטי" class="login__input" pattern="[A-Za-zא-ת ]*" #fn="ngModel" [(ngModel)]="us.uu.UserFirstName" name="fn" required>
+                    <div class="invalid-feedback" *ngIf="fn.invalid && (fn.touched || fn.dirty)">
+                        <p *ngIf="fn?.errors?.['required']" class="p-invalid-feedback">שדה חובה</p>
+                        <p *ngIf="fn?.errors?.['pattern']" class="p-invalid-feedback">שם פרטי מכיל רק אותיות ורווחים</p>
+                    </div>
+                </div>
+                <div class="login__field">
+                    <i class="fa-user login__icon fa"></i>
+                    <input type="text" placeholder="שם משפחה" class="login__input" pattern="[A-Za-zא-ת ]*" #ln="ngModel" [(ngModel)]="us.uu.UserLastName" name="ln" required>
+                    <div class="invalid-feedback" *ngIf="ln.invalid && (ln.touched || ln.dirty)">
+                        <p *ngIf="ln?.errors?.['required']" class="p-invalid-feedback">שדה חובה</p>
+                        <p *ngIf="ln?.errors?.['pattern']" class="p-invalid-feedback">שם משפחה מכיל רק אותיות ורווחים
+                        </p>
+                    </div>
+                </div>
+                <div class="login__field">
+                    <i class="fa-phone login__icon fa"></i>
+                    <input type="text" placeholder="פלאפון" class="login__input" pattern="[0-9]{10}" #phone="ngModel" [(ngModel)]="us.uu.UserPhon" name="phone" required>
+                    <div class="invalid-feedback" *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+                        <p *ngIf="phone?.errors?.['required']" class="p-invalid-feedback">שדה חובה</p>
+                        <p *ngIf="phone?.errors?.['pattern']" class="p-invalid-feedback">פלאפון מכיל 10 ספרות</p>
+                    </div>
+                </div>
+                <div class="login__field">
+                    <i class="fa-envelope login__icon fa"></i>
+                    <input type="email" placeholder="מייל" class="login__input" pattern="[0-9A-Za-z]+@gmail.com" email #e="ngModel" [(ngModel)]="us.uu.UserMail" name="email" required>
+                    <div class="invalid-feedback" *ngIf="e.invalid && (e.touched || e.dirty)">
+                        <p *ngIf="e?.errors?.['required']" class="p-invalid-feedback">שדה חובה</p>
+                        <p *ngIf="e?.errors?.['pattern']" class="p-invalid-feedback">כתובת המייל איננה חוקית</p>
+                    </div>
+                </div>
+
+                <div class="login__field">
+                    <i class="fa-lock login__icon fa"></i>
+                    <input type="password" placeholder="סיסמה" class="login__input" #p="ngModel" [(ngModel)]="us.uu.UserPassword" name="pass" pattern="[0-9A-Za-z]*" minlength="6" required>
+                    <div class="invalid-feedback" *ngIf="p.invalid && (p.touched || p.dirty)">
+                        <p *ngIf="p?.errors?.['required']" class="p-invalid-feedback">שדה חובה</p>
+                        <p *ngIf="p?.errors?.['pattern']" class="p-invalid-feedback">סיסמה מכילה אותיות ומספרים בלבד</p>
+                        <p *ngIf="p?.errors?.['minlength']" class="p-invalid-feedback">סיסמה באורך 6 תוים לפחות</p>
+                    </div>
+                </div>
+                <input type="checkbox" #fa="ngModel" value=false [(ngModel)]="us.uu.UserFirstAid" name="fa"><label>תעודת עזרה ראשונה</label>
+                <br><input type="submit" class="button login__submit button__icon" [disabled]="!f.valid">
+            </form>
+            <div class="social-login">
+                <h3>הרשמה</h3>
+            </div>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>

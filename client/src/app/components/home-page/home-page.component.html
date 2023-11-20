@@ -1,0 +1,44 @@
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+<section class="top">
+    <div class="logo">
+        <img src='./assets/logo.png'>
+    </div>
+    <nav class='menu'>
+        <a class="nav" routerLink="/כניסה" [hidden]=!this.s.userConnect||!this.s.manegerConnect>
+            <div class="icon">
+                <i class="fa fa-sign-in" aria-hidden="true"></i></div>
+            <div class="icon">כניסה</div>
+        </a>
+        <a class="nav" routerLink="/הרשמה" [hidden]=!this.s.userConnect||!this.s.manegerConnect>
+            <div class="icon"><i class="fa fa-user"></i></div>
+            <div class="icon">הרשמה</div>
+        </a>
+        <a class="nav" routerLink="/התנתקות" [hidden]=this.s.userConnect&&this.s.manegerConnect>
+            <div class="icon"><i class="fa-sign-out fa fa-fw"></i></div>
+            <div class="icon">התנתקות</div>
+        </a>
+        <a class="nav" routerLink="/לטיולים שלנו" [hidden]=!this.s.manegerConnect>
+            <div class="icon"><i class="fa fa-map-marker"></i></div>
+            <div class="icon">לטיולים שלנו</div>
+        </a>
+        <a class="nav" routerLink="/איזור אישי" [hidden]=this.s.userConnect>
+            <div class="icon"><i class="fa fa-user"></i></div>
+            <div class="icon">איזור אישי</div>
+        </a>
+        <a class="nav" routerLink="/כל הטיולים" [hidden]=this.s.manegerConnect>
+            <div class="icon"><i class="fa fa-map-marker"></i></div>
+            <div class="icon">כל הטיולים</div>
+        </a>
+        <a class="nav" routerLink="/המשתמשים שלנו" [hidden]=this.s.manegerConnect>
+            <div class="icon"><i class="fa fa-users"></i></div>
+            <div class="icon">המשתמשים שלנו </div>
+        </a>
+    </nav>
+    <p>{{this.s.FullName}}</p>
+</section>
+<app-galery [hidden]="this.s.galery"></app-galery>
+<router-outlet></router-outlet>
+<footer>
+    <img class="foot" src="./assets/footer_bg.png">
+</footer>

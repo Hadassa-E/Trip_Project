@@ -1,0 +1,31 @@
+.btn-close {
+    float: right;
+}
+
+.toast-header {
+    display: inline-block;
+    width: 100%;
+}
+
+.toast {
+    width: 90%;
+    margin: auto
+}
+
+.dd {
+    float: right;
+    margin: auto;
+    width: 400px;
+    height: 600px;
+}
+
+.container {
+    margin: auto;
+    width: 70%;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}

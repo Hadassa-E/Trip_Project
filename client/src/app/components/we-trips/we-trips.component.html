@@ -1,0 +1,40 @@
+<router-outlet></router-outlet>
+<button (click)="funcAllTrips()">הצגת כל הטיולים הקיימים</button>
+<label>  סינון לפי סוג טיול</label><select name="s" [(ngModel)]="this.chooseKind" (change)="kindFilter()">
+    <option *ngFor="let k of this.allKinds" [ngValue]="k.KindId">{{k.KindName}}</option>
+</select>
+<label>  סינון לפי תאריך טיול</label>
+<select name="d" [(ngModel)]="this.chooseDate" (change)="dateFilter()">
+    <option value="0">טיולים מהעבר</option>
+    <option value="1">טיולים של היום</option>
+    <option value="2">טיולים בשבוע הקרוב</option>
+    <option value="3">טיולים בחודש הקרוב</option>
+    <option value="4">כל הטיולים בעתיד</option>
+</select>
+<table class="table table-bordered">
+    <tr>
+        <th>קוד</th>
+        <th>יעד</th>
+        <th>תאריך</th>
+        <th>שעת יציאה</th>
+        <th>משך הטיול בשעות</th>
+        <th>מקומות פנויים</th>
+        <th>מחיר</th>
+        <th>סוג טיול</th>
+        <th>האם יש צורך בחובש</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let i of allTripsToKind" (click)="edit(i.TripId)">
+        <td>{{i.TripId}}</td>
+        <td>{{i.TripDestination}}</td>
+        <td>{{i.TripDate | date:"dd/MM/yy" }}</td>
+        <td>{{i.TripTime}}</td>
+        <td>{{i.TripHour}}</td>
+        <td>{{i.TripAvailability}}</td>
+        <td>{{i.TripPrice}}</td>
+        <td>{{i.KindName}}</td>
+        <td><input type="checkbox" [checked]="i.Paramedic" disabled></td>
+
+    </tr>
+
+</table>

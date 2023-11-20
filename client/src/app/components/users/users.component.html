@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <tr>
+        <th>קוד</th>
+        <th>שם פרטי</th>
+        <th>שם משפחה</th>
+        <th>טלפון</th>
+        <th>אימייל</th>
+        <th>סיסמה</th>
+        <th>תעודת עזרה ראשונה</th>
+    </tr>
+    <tr *ngFor="let i of lusers">
+        <td>{{i.UserId}}</td>
+        <td>{{i.UserFirstName}}</td>
+        <td>{{i.UserLastName}}</td>
+        <td>{{i.UserPhon}}</td>
+        <td>{{i.UserMail}}</td>
+        <td>{{i.UserPassword}}</td>
+        <td><input type="checkbox" [checked]="i.UserFirstAid" disabled></td>
+    </tr>
+</table>

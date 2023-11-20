@@ -1,0 +1,28 @@
+<section>
+    <router-outlet></router-outlet>
+    <div class="container">
+        <h1>הטיולים שלנו</h1>
+        <label> סינון לפי סוג טיול</label>
+        <select name="s" class="form-select" aria-label="Default select example" [(ngModel)]="this.chooseKind" (change)="kindFilter()">
+            <option *ngFor="let k of this.allKinds" [ngValue]="k.KindId">{{k.KindName}}</option>
+        </select>
+
+        <div id="cards_landscape_wrap-2">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let trip of allTripsToKind" (click)="moreDetails(trip)">
+                    <div class="card-flyer">
+                        <div class="text-box">
+                            <div class="image-box">
+                                <img [src]='trip.TripImage' alt="" />
+                            </div>
+                            <div class="text-container">
+                                <p>תאריך: {{trip.TripDate | date:"dd/MM/yy" }}</p>
+                                <p>יעד: {{trip.TripDestination}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
